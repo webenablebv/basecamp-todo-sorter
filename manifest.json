@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "Basecamp to-do sorter",
+  "version": "1.0",
+  "description": "Adds a sort button to Basecamp to-do lists.",
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://3.basecamp.com/*"],
+      "js": ["content-script-main.js"],
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://3.basecamp.com/*"],
+      "js": ["content-script-isolated.js"],
+      "world": "ISOLATED"
+    }
+  ],
+  "permissions": ["webNavigation", "tabs",  "scripting", "webRequest"],
+  "host_permissions": ["https://3.basecamp.com/*"]
+}
