@@ -70,7 +70,7 @@ async function receiveMessage(event) {
     }
 
     // Use Basecamp's library to position
-    const bcUrl = 'https://3.basecamp.com/' + customerId + '/buckets/' + projectId + '/todos/' + items[index].itemId + '/position?todo[position]=' + (++position) + '&todo[parent_id]=' + items[index].todoListId;
+    const bcUrl = `https://3.basecamp.com/${customerId}/buckets/${projectId}/todos/${items[index].itemId}/position?todo[position]=${++position}&todo[parent_id]=${items[index].todoListId}`;
     await BC.fetch(bcUrl, { method: 'PUT' });
 
     todoListIdPrev = items[index].todoListId;
